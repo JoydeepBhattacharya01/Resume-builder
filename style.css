@@ -1,0 +1,713 @@
+/* Global Color Palette & Fonts */
+:root {
+    /* Modern Elegance (Default) */
+    --modern-primary-color: #4A90E2; /* A nice blue */
+    --modern-secondary-color: #50E3C2; /* A fresh teal */
+    --modern-accent-color: #FF5A5F; /* A vibrant red for warnings/delete */
+
+    /* Professional Classic */
+    --classic-primary-color: #2c3e50; /* Dark blue/grey */
+    --classic-secondary-color: #3498db; /* Brighter blue */
+    --classic-accent-color: #e74c3c; /* Red */
+
+    --text-dark: #333;
+    --text-light: #666;
+    --bg-light: #ede8e8;
+    --bg-white: #fff;
+    --border-light: #e0e0e0;
+    --shadow-light: rgba(0, 0, 0, 0.08);
+    --shadow-medium: rgba(0, 0, 0, 0.12);
+
+    /* Default (Modern) */
+    --current-primary-color: var(--modern-primary-color);
+    --current-secondary-color: var(--modern-secondary-color);
+    --current-accent-color: var(--modern-accent-color);
+    --current-font-heading: 'Poppins', sans-serif;
+    --current-font-body: 'Open Sans', sans-serif;
+}
+
+/* Base Styles (apply to all templates unless overridden) */
+body {
+    font-family: var(--current-font-body); /* Global body font */
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(135deg, var(--bg-light) 0%, #f5f2f2 100%);
+    color: var(--text-dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.container {
+    background-color: var(--bg-white);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px var(--shadow-medium);
+    max-width: 1400px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+h1, h2, h3 {
+    font-family: var(--current-font-heading);
+    color: var(--text-dark);
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 2.8em;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 30px;
+    color: var(--current-primary-color);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+}
+
+h2 {
+    font-size: 1.8em;
+    color: var(--current-primary-color);
+    border-bottom: 2px solid var(--border-light);
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+
+/* Template Selector Styling */
+.template-selector-group {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: var(--current-font-body);
+    font-size: 1.1em;
+    color: var(--text-dark);
+}
+
+.template-selector-group label {
+    margin-right: 15px;
+    font-weight: 600;
+}
+
+#templateSelect {
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+    background-color: var(--bg-white);
+    font-size: 1em;
+    cursor: pointer;
+    box-shadow: 0 2px 5px var(--shadow-light);
+    transition: all 0.3s ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23666'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 18px;
+}
+
+#templateSelect:hover {
+    border-color: var(--current-primary-color);
+    box-shadow: 0 4px 10px var(--shadow-medium);
+}
+
+/* Progress Bar Styling */
+.progress-container {
+    width: 100%;
+    background-color: var(--border-light);
+    border-radius: 5px;
+    margin-bottom: 30px;
+    height: 12px;
+    overflow: hidden;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--current-secondary-color) 0%, var(--current-primary-color) 100%);
+    border-radius: 5px;
+    transition: width 0.4s ease-in-out;
+}
+
+/* Form Styling */
+#resumeForm {
+    flex: 1;
+    min-width: 450px;
+    animation: fadeInScale 0.8s ease-out;
+}
+
+.form-section {
+    margin-bottom: 35px;
+    padding: 30px;
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+    background-color: var(--bg-white);
+    box-shadow: 0 5px 15px var(--shadow-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px var(--shadow-medium);
+}
+
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 0.95em;
+}
+
+.form-group label i {
+    margin-right: 8px;
+    color: var(--current-primary-color);
+}
+
+.form-group input[type="text"],
+.form-group input[type="tel"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: calc(100% - 24px);
+    padding: 12px;
+    border: 1px solid var(--border-light);
+    border-radius: 6px;
+    font-size: 1em;
+    color: var(--text-dark);
+    background-color: var(--bg-white);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    resize: vertical;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="tel"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    border-color: var(--current-primary-color);
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+    background-color: #eff6ff;
+    outline: none;
+}
+
+.form-group input[type="text"]:hover,
+.form-group input[type="tel"]:hover,
+.form-group input[type="email"]:hover,
+.form-group textarea:hover {
+    border-color: var(--current-primary-color);
+}
+
+.form-group-inline {
+    display: flex;
+    gap: 20px;
+}
+
+.form-group-inline .form-group {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+/* Radio Button Group for GPA/Percentage */
+.radio-group {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 15px;
+    align-items: center;
+}
+
+.radio-group label {
+    margin-bottom: 0;
+    font-weight: normal;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: var(--text-light);
+}
+
+.radio-group input[type="radio"] {
+    margin-right: 8px;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.radio-group input[type="radio"]:checked + label {
+    color: var(--current-primary-color);
+    font-weight: 600;
+}
+
+
+button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--current-primary-color);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    margin-right: 15px;
+    margin-top: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+button i {
+    margin-right: 8px;
+}
+
+button:hover {
+    background-color: #3a7bd2;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+button#clearForm {
+    background-color: var(--current-accent-color);
+}
+
+button#clearForm:hover {
+    background-color: #e24e52;
+}
+
+button#downloadPdf {
+    background-color: var(--current-secondary-color);
+}
+
+button#downloadPdf:hover {
+    background-color: #40c5ae;
+}
+
+.remove-item-btn {
+    background-color: #ccc;
+    color: var(--text-dark);
+    margin-top: 10px;
+    padding: 8px 15px;
+    font-size: 0.9em;
+    border-radius: 5px;
+}
+
+.remove-item-btn:hover {
+    background-color: #bbb;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Resume Preview Styling (Base for both templates) */
+.resume-preview-container {
+    flex: 1.5;
+    min-width: 600px;
+    background-color: var(--bg-white);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px var(--shadow-medium);
+    animation: fadeInScale 0.8s ease-out;
+    display: flex;
+    flex-direction: column;
+}
+
+.resume-preview {
+    border: 1px solid var(--border-light);
+    min-height: 800px;
+    padding: 40px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    font-size: 16px;
+    color: var(--text-dark);
+    background-color: var(--bg-white);
+    overflow-y: auto;
+    position: relative;
+    border-radius: 8px;
+    box-shadow: inset 0 1px 5px rgba(0,0,0,0.05);
+}
+
+/* Individual Template Styles */
+
+/* --- Modern Elegance Template (Default) --- */
+.template-modern {
+    --current-primary-color: var(--modern-primary-color);
+    --current-secondary-color: var(--modern-secondary-color);
+    --current-accent-color: var(--modern-accent-color);
+    --current-font-heading: 'Poppins', sans-serif;
+    --current-font-body: 'Open Sans', sans-serif;
+}
+
+.template-modern .resume-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; /* Keeps name and contact baseline aligned if on same line */
+    margin-bottom: 25px;
+    border-bottom: 3px solid var(--modern-primary-color);
+    padding-bottom: 15px;
+    flex-wrap: wrap; /* Allow wrapping */
+    gap: 15px 30px; /* Vertical and horizontal gap between flex items */
+}
+
+.template-modern .resume-name-container { /* NEW CONTAINER FOR NAME AND PRONOUNS */
+    flex-grow: 1; /* Allows it to take available space */
+    flex-shrink: 1; /* Allows it to shrink if needed */
+    min-width: 250px; /* Minimum width to prevent excessive shrinking */
+}
+
+.template-modern .resume-name {
+    font-size: 4em; /* Slightly reduced size from 4.5em */
+    font-weight: 700;
+    line-height: 1;
+    color: var(--text-dark);
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    word-break: break-word; /* Important for long names to prevent overflow */
+}
+
+.template-modern .resume-pronouns {
+    font-size: 1.2em; /* Slightly reduced from 1.3em */
+    margin-left: 0; /* Align with the start of the name */
+    color: var(--text-light);
+    font-style: italic;
+    white-space: nowrap; /* Keep pronouns on one line */
+    display: block; /* Ensure it starts on a new line below the name */
+    margin-top: 5px; /* Space between name and pronouns */
+}
+
+.template-modern .resume-contact-info {
+    font-size: 1.1em;
+    margin-top: 0; /* Reset margin top to let flex alignment handle it */
+    color: var(--text-light);
+    text-align: right;
+    line-height: 1.6;
+    flex-shrink: 0; /* Prevent contact info from shrinking */
+    min-width: 200px; /* Ensure contact info has a minimum width */
+}
+.template-modern .resume-contact-info i {
+    margin-right: 5px;
+    color: var(--modern-primary-color);
+}
+
+/* --- Professional Classic Template --- */
+.template-classic {
+    --current-primary-color: var(--classic-primary-color);
+    --current-secondary-color: var(--classic-secondary-color);
+    --current-accent-color: var(--classic-accent-color);
+    --current-font-heading: 'Open Sans', sans-serif;
+    --current-font-body: 'Open Sans', sans-serif;
+}
+
+.template-classic h1 {
+    text-shadow: none;
+}
+
+.template-classic .container,
+.template-classic .form-section,
+.template-classic .resume-preview-container,
+.template-classic .resume-preview {
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.template-classic .form-section:hover {
+    transform: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.template-classic .form-group input,
+.template-classic .form-group textarea {
+    border-radius: 4px;
+}
+
+.template-classic button {
+    border-radius: 5px;
+    box-shadow: none;
+}
+.template-classic button:hover {
+    transform: none;
+    box-shadow: none;
+}
+.template-classic button:active {
+    transform: none;
+}
+
+
+.template-classic .resume-name {
+    font-size: 3em;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text-dark);
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+.template-classic .resume-pronouns {
+    font-size: 1em;
+    margin-left: 0;
+    color: var(--text-dark);
+    align-self: flex-start;
+    font-style: normal;
+}
+
+.template-classic .resume-header {
+    flex-direction: column;
+    align-items: flex-start;
+    border-bottom: 2px solid var(--classic-primary-color);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.template-classic .resume-contact-info {
+    text-align: left;
+    margin-top: 10px;
+}
+
+.template-classic .resume-summary {
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.resume-section { /* Moved common resume-section styles here */
+    padding-top: 15px;
+    margin-bottom: 20px;
+}
+
+.resume-section h3 {
+    font-size: 1.6em; /* Example value, might vary slightly */
+    color: var(--current-primary-color); /* CHANGED: Now uses current primary color */
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+    position: relative;
+    border-bottom: 1px solid var(--border-light); /* Added to classic, kept from modern */
+    padding-bottom: 5px; /* Added to classic, kept from modern */
+    font-weight: 600; /* Added to classic */
+}
+
+
+.template-classic .resume-section ul li::before {
+    content: none;
+}
+
+.template-classic .resume-section ul li {
+    position: relative;
+    padding-left: 15px;
+}
+
+.template-classic .resume-section ul li::marker {
+    color: var(--classic-primary-color);
+}
+
+.resume-item-title { /* Moved common resume-item-title styles here */
+    font-weight: 700;
+    font-size: 1.1em; /* Example value, might vary slightly */
+    color: var(--current-primary-color); /* ADDED: Now uses current primary color */
+}
+
+.template-classic .resume-item-title {
+    font-size: 1em; /* Override for classic if needed, but primary is inherited */
+}
+
+
+.template-classic .resume-item-details {
+    font-style: normal;
+    font-size: 0.9em;
+}
+
+.template-classic .resume-item-description ul {
+    list-style: disc;
+    margin-left: 20px;
+}
+.template-classic .resume-item-description ul li::before {
+    content: none;
+}
+
+/* Footer Styling */
+.footer {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+    background-color: var(--current-primary-color);
+    color: white;
+    font-size: 0.9em;
+    font-family: var(--current-font-body);
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+
+/* Animations */
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.95) translateY(20px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Media Queries for Responsive Design */
+
+/* Tablets and small desktops */
+@media (max-width: 1200px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        padding: 30px;
+    }
+
+    #resumeForm, .resume-preview-container {
+        min-width: unset;
+        width: 100%;
+        max-width: 800px;
+    }
+
+    /* All templates will stack header items on smaller screens */
+    .resume-header { /* Apply to all headers at this breakpoint */
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        gap: 5px; /* Reduce gap when stacking */
+    }
+
+    .template-modern .resume-name {
+        font-size: 3.5em; /* Further reduce for tablets */
+    }
+
+    .template-modern .resume-pronouns {
+        margin-left: 0;
+        margin-top: 8px;
+        font-size: 1.1em;
+    }
+
+    .resume-contact-info { /* Applies to both templates */
+        text-align: left;
+        margin-top: 15px;
+    }
+
+    h1 {
+        font-size: 2.2em;
+    }
+
+    .template-classic .resume-name {
+        font-size: 2.5em;
+    }
+}
+
+/* Mobile devices */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    .container {
+        padding: 20px;
+        gap: 25px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+        margin-bottom: 25px;
+    }
+
+    h2 {
+        font-size: 1.4em;
+        margin-bottom: 20px;
+    }
+
+    .form-section {
+        padding: 20px;
+        margin-bottom: 25px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    button {
+        font-size: 0.95em;
+        padding: 10px;
+    }
+
+    button {
+        padding: 10px 20px;
+        margin-right: 10px;
+        margin-top: 15px;
+    }
+
+    .form-group-inline {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .resume-preview {
+        padding: 25px;
+        min-height: 600px;
+    }
+
+    .template-modern .resume-name {
+        font-size: 2.8em;
+    }
+
+    .template-modern .resume-pronouns {
+        font-size: 1em;
+    }
+
+    .resume-summary {
+        font-size: 1em;
+    }
+
+    .resume-section h3 {
+        font-size: 1.4em;
+    }
+
+    .resume-contact-info {
+        font-size: 1em;
+    }
+
+    .resume-section ul li {
+        font-size: 0.95em;
+        gap: 8px;
+    }
+    .template-modern .resume-section ul li::before {
+        font-size: 1em;
+    }
+
+    .template-classic .resume-name {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.6em;
+    }
+    .template-modern .resume-name {
+        font-size: 2.2em;
+    }
+    .resume-section h3 {
+        font-size: 1.2em;
+    }
+    .resume-preview {
+        padding: 15px;
+    }
+    .form-actions button {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}

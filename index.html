@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Resume Builder</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="template-modern"> <div class="container">
+        <h1>Craft Your Stunning Resume</h1>
+
+        <div class="template-selector-group">
+            <label for="templateSelect">Choose Template:</label>
+            <select id="templateSelect">
+                <option value="modern">Modern Elegance</option>
+                <option value="classic">Professional Classic</option>
+            </select>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <form id="resumeForm">
+            <section class="form-section">
+                <h2>Personal Information</h2>
+                <div class="form-group">
+                    <label for="fullName"><i class="fas fa-user"></i> Full Name:</label>
+                    <input type="text" id="fullName" name="fullName" placeholder="Jude Riley">
+                </div>
+                <div class="form-group">
+                    <label for="pronouns"><i class="fas fa-genderless"></i> Pronouns (optional):</label>
+                    <input type="text" id="pronouns" name="pronouns" placeholder="(they/them/theirs)">
+                </div>
+                <div class="form-group">
+                    <label for="summary"><i class="fas fa-lightbulb"></i> Summary:</label>
+                    <textarea id="summary" name="summary" rows="5" placeholder="Ambitious and motivated student..."></textarea>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <h2>Contact</h2>
+                <div class="form-group">
+                    <label for="phone"><i class="fas fa-phone"></i> Phone:</label>
+                    <input type="tel" id="phone" name="phone" placeholder="555 978 2296">
+                </div>
+                <div class="form-group">
+                    <label for="email"><i class="fas fa-envelope"></i> Email:</label>
+                    <input type="email" id="email" name="email" placeholder="j.riley@email.sp.com">
+                </div>
+            </section>
+
+            <section class="form-section" id="educationSection">
+                <h2>Education</h2>
+                <div class="education-item">
+                    <div class="form-group">
+                        <label for="school1"><i class="fas fa-school"></i> School Name:</label>
+                        <input type="text" class="school" name="school[]" placeholder="Fendsmore High School">
+                    </div>
+                    <div class="form-group">
+                        <label for="schoolLocation1"><i class="fas fa-map-marker-alt"></i> Location:</label>
+                        <input type="text" class="school-location" name="schoolLocation[]" placeholder="Chicago, IL">
+                    </div>
+                    <div class="form-group-inline">
+                        <div class="form-group">
+                            <label for="schoolStart1"><i class="fas fa-calendar-alt"></i> Start Date:</label>
+                            <input type="text" class="school-start" name="schoolStart[]" placeholder="Sep 2019">
+                        </div>
+                        <div class="form-group">
+                            <label for="schoolEnd1"><i class="fas fa-calendar-alt"></i> End Date:</label>
+                            <input type="text" class="school-end" name="schoolEnd[]" placeholder="Present">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="coursework1"><i class="fas fa-book-open"></i> Relevant Coursework:</label>
+                        <input type="text" class="coursework" name="coursework[]" placeholder="e.g., Economics, Business">
+                    </div>
+                    <div class="form-group">
+                        <label>Academic Score Type:</label>
+                        <div class="radio-group">
+                            <input type="radio" id="gpaType1" name="gpaType[]" value="gpa" checked>
+                            <label for="gpaType1">GPA</label>
+                            <input type="radio" id="percentageType1" name="gpaType[]" value="percentage">
+                            <label for="percentageType1">Percentage</label>
+                        </div>
+                    </div>
+                    <div class="form-group academic-score-input" data-score-type="gpa">
+                        <label for="academicScore1" class="score-label"><i class="fas fa-graduation-cap"></i> Unweighted GPA:</label>
+                        <input type="text" id="academicScore1" class="gpa-percentage-input" name="academicScore[]" placeholder="3.9">
+                    </div>
+                </div>
+                <button type="button" id="addEducation"><i class="fas fa-plus-circle"></i> Add Education</button>
+            </section>
+
+            <section class="form-section" id="experienceSection">
+                <h2>Experience</h2>
+                <div class="experience-item">
+                    <div class="form-group">
+                        <label for="jobTitle1"><i class="fas fa-briefcase"></i> Job Title/Role:</label>
+                        <input type="text" class="job-title" name="jobTitle[]" placeholder="Volunteer">
+                    </div>
+                    <div class="form-group">
+                        <label for="company1"><i class="fas fa-building"></i> Company Name:</label>
+                        <input type="text" class="company" name="company[]" placeholder="Clean Parks Association">
+                    </div>
+                    <div class="form-group">
+                        <label for="jobLocation1"><i class="fas fa-map-marker-alt"></i> Location:</label>
+                        <input type="text" class="job-location" name="jobLocation[]" placeholder="Chicago, IL">
+                    </div>
+                     <div class="form-group-inline">
+                        <div class="form-group">
+                            <label for="jobStart1"><i class="fas fa-calendar-alt"></i> Start Date:</label>
+                            <input type="text" class="job-start" name="jobStart[]" placeholder="Jun 2018">
+                        </div>
+                        <div class="form-group">
+                            <label for="jobEnd1"><i class="fas fa-calendar-alt"></i> End Date:</label>
+                            <input type="text" class="job-end" name="jobEnd[]" placeholder="Present">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="responsibilities1"><i class="fas fa-list-alt"></i> Responsibilities (comma-separated):</label>
+                        <textarea class="responsibilities" name="responsibilities[]" rows="3" placeholder="Operated weekly clean-ups in local parkland areas, Participated in educational interventions in schools, Created flyers and posters to raise awareness, Created community engagement through social media"></textarea>
+                    </div>
+                </div>
+                <button type="button" id="addExperience"><i class="fas fa-plus-circle"></i> Add Experience</button>
+            </section>
+
+            <section class="form-section">
+                <h2>Awards & Merits</h2>
+                <div class="form-group">
+                    <label for="awards"><i class="fas fa-award"></i> Awards (comma-separated):</label>
+                    <textarea id="awards" name="awards" rows="3" placeholder="Academic Honor Roll, Marketing Poster Design - 1st Place"></textarea>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <h2>Skills</h2>
+                <div class="form-group">
+                    <label for="skills"><i class="fas fa-cogs"></i> Skills (comma-separated):</label>
+                    <textarea id="skills" name="skills" rows="3" placeholder="First Aid & CPR Certificate, Health & Safety Course, People Skills"></textarea>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <h2>Extracurriculars</h2>
+                <div class="form-group">
+                    <label for="extracurriculars"><i class="fas fa-futbol"></i> Extracurriculars (comma-separated, with details):</label>
+                    <textarea id="extracurriculars" name="extracurriculars" rows="5" placeholder="School Choir - Member (Organized charity concerts, Raised over 10k for charity)"></textarea>
+                </div>
+            </section>
+
+            <div class="form-actions">
+                <button type="button" id="clearForm"><i class="fas fa-eraser"></i> Clear Form</button>
+                <button type="button" id="downloadPdf"><i class="fas fa-download"></i> Download PDF</button>
+            </div>
+        </form>
+
+        <div class="resume-preview-container">
+            <h2>Live Resume Preview</h2>
+            <div id="resumePreview" class="resume-preview">
+                <div class="resume-header">
+                    <div class="resume-name-container">
+                        <div class="resume-name">JUDE RILEY</div>
+                        <div class="resume-pronouns">(they/them/theirs)</div>
+                    </div>
+                    <div class="resume-contact-info">
+                        <i class="fas fa-phone"></i> 555 978 2296<br>
+                        <i class="fas fa-envelope"></i> j.riley@email.sp.com
+                    </div>
+                </div>
+                <div class="resume-summary">
+                    Ambitious and motivated student with an outstanding academic track record and a passion for helping others. Great creative thinker, excellent people skills and strong work ethic. Seeking to apply my organizational and communication skills to the Business summer internship at your company.
+                </div>
+                </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p id="copyrightClaim"></p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
